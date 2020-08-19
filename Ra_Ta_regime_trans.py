@@ -20,7 +20,7 @@ for t in range(len(Ta)):
     Ra1.append((0.086 / 4) * Ta[t])
     Ra2.append((1.4 * (2 ** (-7/4))) * (Ta[t] ** (7/8)))
     Ra3.append((1.4 * (2 ** (-1.5))) * (Ta[t] ** 0.75))
-x =Ta
+
 y1 = Ra1
 y2 = Ra2
 y3 = Ra3
