@@ -21,4 +21,10 @@ for t in range(len(omg)):
     lek.append(2.284 * np.sqrt(nu / omg[t]))
 
 plt.plot(ro, lek)
+#plt.axvspan(0.15, 0.18, 0, 0.5,  facecolor='g', alpha=0.5 )
+plt.axhspan(0.00182, 0.00250, 0.175, 0.5,  facecolor='g', alpha=0.5 )
+plt.xlabel("Rossby number Ro")
+plt.ylabel(r"$\delta_e$")
+plt.title(r"Ekman boundary layer thickness $\delta_e$ vs Rossby number")
+#plt.annotate('Operating range with roughness k=10mm', (0.16, 0.002))
 plt.show()
