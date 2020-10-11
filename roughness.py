@@ -25,12 +25,19 @@ ek = []
 r = []
 rac = []
 for t in range(len(omg)):
-    ro.append((np.sqrt(9.81 * beta * (delt / h))) / (2* omg[t]))
+    ro.append((np.sqrt(9.81 * beta * (delt / h))) / (2 * omg[t]))
     ek.append(ro[t] /kc)
-    lek.append(2.284 * np.sqrt(nu / omg[t]))
+    lek.append(2.284 * 1000 * np.sqrt(nu / omg[t]))
     rac.append(8.6 * (ek[t] ** (-4/3)))
     r.append(ra / (8.6 * (ek[t] ** (-4/3))))
 
+rot = (np.sqrt(9.81 * beta * (delt / h))) / (2 * 3)
+ekt = rot / kc
+#rot = 0.053107, ekt = 4.13509 10** -6
+print(rot, ekt)
 plt.plot(ro, lek)
+plt.axvspan(0.053107, 0.198, 0.05, 0.59,  facecolor='g', alpha=0.5)
 #plt.plot(ek, r)
+plt.xlabel('Rossby number(Ro)')
+plt.ylabel(r'$\delta_e (mm)$')
 plt.show()
