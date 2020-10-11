@@ -5,10 +5,9 @@
 #max=70 rpm.
 #omega = 2 pi N /60
 # ro = sqrt (ra/pr ta); ta = ek-2; ro =sqrt(g*beta*(del t/hght=0.2m))/2 omega;
-
+# thermal diffusivity = 0.143 * 10 ** -6
 import numpy as np
 import matplotlib.pyplot as plt
-
 delt = 10
 beta = (207 * (10**(-6)))  #delta T, temperature difference.
 h = 0.2 #height of cell in meters
@@ -18,13 +17,16 @@ ro = []
 lek = []
 for t in range(len(omg)):
     ro.append((np.sqrt(9.81 * beta * (delt / h))) / (2* omg[t]))
-    lek.append(2.284 * np.sqrt(nu / omg[t]))
-
+    lek.append(2.284 * np.sqrt(nu / omg[t]) * 1000)
 plt.plot(ro, lek)
 #plt.axvspan(0.15, 0.18, 0, 0.5,  facecolor='g', alpha=0.5 )
-plt.axhspan(0.00182, 0.00250, 0.175, 0.5,  facecolor='g', alpha=0.5 )
+plt.axhspan(1.82, 2.50, 0.175, 0.5,  facecolor='g', alpha=0.5 )
+plt.ylim([1.8 ,3 ])
 plt.xlabel("Rossby number Ro")
-plt.ylabel(r"$\delta_e$")
+plt.ylabel(r"$\delta_e$ (mm)")
 plt.title(r"Ekman boundary layer thickness $\delta_e$ vs Rossby number")
 #plt.annotate('Operating range with roughness k=10mm', (0.16, 0.002))
 plt.show()
+
+
+
